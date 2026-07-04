@@ -1,0 +1,11 @@
+[project]
+name = "mealdb-mcp-server"
+version = "1.0.0"
+description = "An MCP server for interacting with TheMealDB API."
+readme = "README.md"
+requires-python = ">=3.11"
+
+dependencies = [
+    "mcp>=1.28.0",
+    "requests>=2.32.0"
+]
