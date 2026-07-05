@@ -2,7 +2,12 @@ import os
 import requests
 from mcp.server.fastmcp import FastMCP
 
-mcp=FastMCP("MealDb MCP Server",dependencies=["requests"])
+mcp=FastMCP(
+    "MealDb MCP Server",
+    dependencies=["requests"],
+    host="0.0.0.0",
+    port=int(os.environ.get("PORT", 8000)),
+)
 BASE_URL = "https://www.themealdb.com/api/json/v1/1"
 
 @mcp.tool()
@@ -431,5 +436,4 @@ Use headings and bullet points wherever appropriate.
 """
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8000))
-    mcp.run(transport="streamable-http", host="0.0.0.0", port=port)
+    mcp.run(transport="streamable-http")
